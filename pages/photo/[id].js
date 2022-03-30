@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 export default function photo({ photo }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
   if (!router.isFallback && !photo) {
     return <div className="error">Error 404. Page Not Found</div>;
@@ -13,7 +14,13 @@ export default function photo({ photo }) {
           <div>Loading…</div>
         ) : (
           <>
-            <Image width={960} height={540} priority src={photo} />
+            <Image
+              alt="nasa-image"
+              width={960}
+              height={540}
+              priority
+              src={photo}
+            />
           </>
         )}
       </div>
