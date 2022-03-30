@@ -45,3 +45,18 @@ a {
   color: rgb(216, 0, 0);
   font-size: 5rem;
 }
+.center-it {
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+.logo-div {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.imagePreview-div {
+  position: relative;
+  width: 1000px;
+}

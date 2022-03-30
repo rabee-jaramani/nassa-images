@@ -13,7 +13,7 @@ export default function photo({ photo }) {
           <div>Loading…</div>
         ) : (
           <>
-            <Image width={960} priority height={540} src={photo} />
+            <Image width={960} height={540} priority src={photo} />
           </>
         )}
       </div>

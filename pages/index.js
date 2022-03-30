@@ -4,14 +4,12 @@ import { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import ImagePreview from '../components/ImagePreview';
 import Image from 'next/image';
-
 export default function Home({ items }) {
   const [search, setSearch] = useState('');
   const [photos, setPhotos] = useState(items);
   useEffect(() => {
     setPhotos(items);
-    console.log('photos>> ', photos[0]);
-  }, []);
+  }, [items]);
   return (
     <div className={'container'}>
       <Head>
@@ -28,6 +26,14 @@ export default function Home({ items }) {
         ></link>
       </Head>
       <div className="main">
+        <div className="logo-div">
+          <Image
+            src="/nasa-logo.png"
+            alt="Picture of the author"
+            width={280}
+            height={230}
+          />
+        </div>
         <h1 className="title">Welcome to NASA gallery</h1>
         <div className="images-grid">
           {photos.map((image) => (
@@ -50,6 +56,7 @@ export async function getStaticProps() {
     'https://images-api.nasa.gov/search?media_type=image'
   );
   const preview = await resaults.json();
+
   const items = await preview.collection.items;
   return {
     props: { items },
